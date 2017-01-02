@@ -101,11 +101,14 @@ Optional Variables:
   automaticConfigReload: whether to watch the config file and reload it when it
                          changes. The default is true. Set this to false to disable.
 */
+
 (function() {
     return {
         graphitePort: parseInt(process.env.GRAPHITE_PORT_2003_TCP_PORT),
         graphiteHost: process.env.GRAPHITE_PORT_2003_TCP_ADDR,
-        port: parseInt(process.env.STATSD_PORT),
+        servers: [
+            { server: "./servers/tcp", port: parseInt(process.env.STATSD_PORT) }
+        ],
         dumpMessages: process.env.STATSD_DUMP_MSG == "true",
         debug: process.env.STATSD_DEBUG == "true",
         flushInterval: parseInt(process.env.STATSD_FLUSH_INTERVAL),

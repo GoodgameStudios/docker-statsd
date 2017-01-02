@@ -14,7 +14,7 @@ ENV STATSD_DUMP_MSG false
 ENV STATSD_DEBUG false
 ENV STATSD_FLUSH_INTERVAL 10000
 
-EXPOSE 8125/udp
+EXPOSE 8125/tcp
 EXPOSE 8126/tcp
 
 CMD node /usr/local/src/statsd/stats.js /etc/default/statsd.js
